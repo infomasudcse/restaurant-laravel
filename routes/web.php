@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function(){
-    return 'admin';
+// Route::get('/admin', function(){
+//     return 'admin';
+// });
+
+
+Route::middleware(['auth', 'admin'])->group(function(){
+
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+
+
 });
-
-
-
 
 
 
