@@ -15,24 +15,25 @@ use App\Http\Controllers\WebController;
 |
 */
 
-Route::get('/', [WebController::class, 'index'])->name('root');
+Route::get('/', [WebController::class, 'index']);
 
-// Route::get('/admin', function(){
+// Route::get('/ciao', function(){
 //     return 'admin';
 // });
 
 
+
 Route::middleware(['auth', 'admin'])->group(function(){
 
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
 
 });
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

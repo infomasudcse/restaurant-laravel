@@ -89,7 +89,9 @@ https://templatemo.com/tm-558-klassy-cafe
                                     <li class="submenu">
                                            <a href="javascript:;">{{ Auth::user()->name }}</a>
                                            <ul>
-                                               <li><a href="{{ route('admin') }}" class="text-sm text-gray-700 underline">Dashboard</a></li>
+                                               @if(Auth::user()->role === 'admin')
+                                                <li><a href="{{ route('dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a></li> 
+                                                @endif
                                                <li>
                                                    <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
