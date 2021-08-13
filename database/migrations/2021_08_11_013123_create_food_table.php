@@ -15,7 +15,15 @@ class CreateFoodTable extends Migration
     {
         Schema::create('food', function (Blueprint $table) {
             $table->id();
+           /// $table->unsignedBigInteger('foodcategory_id');
+            $table->double('price');
+            $table->string('title');
+            $table->text('short_description');
+            $table->text('long_description');
+            $table->text('image_path');    
             $table->timestamps();
+            $table->index('title');
+            $table->foreignId('foodcategory_id')->constrained('foodcategories');
         });
     }
 
