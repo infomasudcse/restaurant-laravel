@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FoodcategoryController;
+use App\Http\Controllers\FoodController;
 use App\Http\Controllers\WebController;
 
 /*
@@ -25,7 +27,14 @@ Route::get('/', [WebController::class, 'index']);
 
 Route::middleware(['auth', 'admin'])->group(function(){
 
+
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::resources([
+        'food-category' => FoodcategoryController::class,
+        'food' => FoodController::class,
+    ]);
+
+
 
 
 });

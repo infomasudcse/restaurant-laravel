@@ -22,7 +22,8 @@ class FoodcategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name'=> $this->faker->text($maxNbChars = 10)
+            'name'=> $this->faker->text($maxNbChars = 10),
+           
         ];
     }
 }

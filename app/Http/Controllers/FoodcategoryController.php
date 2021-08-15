@@ -12,9 +12,13 @@ class FoodcategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $title = ' Food Category ';
+
+
     public function index()
     {
-        //
+        $foodcategory = Foodcategory::simplePaginate(4);
+        return view('admin.foodcategory.index', ['foodcategory'=>$foodcategory, 'title'=>$this->title]);
     }
 
     /**
