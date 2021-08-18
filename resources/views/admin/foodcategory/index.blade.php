@@ -20,7 +20,7 @@
                         </thead>
                         <tbody>
 
-                        @if($foodcategory)
+                        @if(count($foodcategory) > 1)
                             @foreach($foodcategory as $category)
                                 <tr>
                                     <td> {{ $loop->iteration }} </td>
@@ -28,13 +28,14 @@
                                     <td> action </td>
                                 </tr>
                             @endforeach
+                        @else
+                              <tr>
+                                  <td colspan="3"> No Entry Found !  </td>
+                               </tr>
 
-                        @endif
-                         
+                        @endif                        
                          
                         </tbody>
-                        
-                           
                      
                       </table>
                     

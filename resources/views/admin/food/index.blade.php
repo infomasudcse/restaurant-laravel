@@ -6,24 +6,28 @@
 <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Bordered table</h4>
-                    <p class="card-description"> Add class <code>.table-bordered</code>
-                    </p>
+                    <h4 class="card-title">{{ $title }}</h4>
+                    <p class="card-description"> Add New </p>
                     <div class="table-responsive">
                       <table class="table table-bordered">
                         <thead>
                           <tr>
                             <th> # </th>
-                            <th> First name </th>
-                            <th> Progress </th>
-                            <th> Amount </th>
-                            <th> Deadline </th>
+                            <th> Title </th>
+                            <th> Sort Description </th>
+                            <th> Image </th>
+                            <th>Price</th>
+                            <th> Category </th>
+                            <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
+
+                        @if(count($food) > 0)
+                          @foreach($food as $item)
                           <tr>
-                            <td> 1 </td>
-                            <td> Herman Beck </td>
+                            <td> {{ $loop->iteration }} </td>
+                            <td> {{ $item->title }} </td>
                             <td>
                               <div class="progress">
                                 <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -32,6 +36,16 @@
                             <td> $ 77.99 </td>
                             <td> May 15, 2015 </td>
                           </tr>
+                          @endforeach
+
+                        @else
+                            <tr>
+                              <td colspan="7">No Entry Found ! </tr>
+                            </tr>
+
+                        @endif
+
+
                           <tr>
                             <td> 2 </td>
                             <td> Messsy Adam </td>
